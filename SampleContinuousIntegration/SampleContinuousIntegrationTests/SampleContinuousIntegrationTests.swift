@@ -10,7 +10,7 @@ import XCTest
 @testable import SampleContinuousIntegration
 
 class SampleContinuousIntegrationTests: XCTestCase {
-    
+    let viewController = ViewController()
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -21,16 +21,13 @@ class SampleContinuousIntegrationTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testIsValidEmail() {
+       XCTAssertTrue(viewController.isValidEmail("asd@asd.asd"), "email id should be valid")
+        XCTAssertFalse(viewController.isValidEmail("asd@asd.a2sd"), "email id should not be valid")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testIsValidPhoneNumber() {
+        XCTAssertTrue(viewController.isValidPhoneNumber("123-123-1233"), "phone number should be valid")
+        XCTAssertFalse(viewController.isValidPhoneNumber("1231231231"), "phone number should not be valid")
     }
-    
 }
